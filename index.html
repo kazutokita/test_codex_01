@@ -2,33 +2,43 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>モバイル向けテトリス</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>ポケットマリオランナー</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="top-bar">
-    <h1>テトリス</h1>
-    <button id="reset-btn" type="button" aria-label="ゲームをリセット">リセット</button>
+    <div class="title-group">
+      <h1>ポケットマリオランナー</h1>
+      <p class="subtitle">スマホで遊べる横スクロールアクション</p>
+    </div>
+    <div class="hud">
+      <div class="hud__item">コイン <span id="coins">0</span></div>
+      <div class="hud__item">タイム <span id="time">0.0s</span></div>
+    </div>
   </header>
 
   <main class="layout">
-    <section class="board-container" aria-label="テトリスのプレイフィールド">
-      <canvas id="board" width="320" height="640" aria-label="ゲームボード"></canvas>
+    <section class="canvas-wrap" aria-label="ゲーム画面">
+      <canvas id="game" width="960" height="480" aria-label="横スクロールステージ"></canvas>
+      <div id="banner" role="status" aria-live="polite"></div>
     </section>
-    <section class="hud">
-      <div class="stat">スコア: <span id="score">0</span></div>
-      <div class="stat">ライン: <span id="lines">0</span></div>
-      <div class="stat">レベル: <span id="level">1</span></div>
-      <p class="hint">左右移動・回転・ソフトドロップは下のボタンで操作できます。キーボード操作にも対応しています。</p>
+
+    <section class="about">
+      <h2>遊び方</h2>
+      <ul>
+        <li>▶: 右に進む / ◀: 左に戻る</li>
+        <li>⤒: ジャンプ（空中で押すと短めのジャンプ）</li>
+        <li>コインを集めながらゴールの旗に触れたらクリア</li>
+        <li>落下や敵に当たったらスタート地点からリスタート</li>
+      </ul>
     </section>
   </main>
 
   <section class="controls" aria-label="タッチ操作ボタン">
-    <button class="ctrl" data-action="left" aria-label="左に移動">◀︎</button>
-    <button class="ctrl" data-action="rotate" aria-label="回転">⟳</button>
-    <button class="ctrl" data-action="right" aria-label="右に移動">▶︎</button>
-    <button class="ctrl accent" data-action="drop" aria-label="ソフトドロップ">▼</button>
+    <button class="ctrl" data-action="left" aria-label="左に移動">◀</button>
+    <button class="ctrl" data-action="right" aria-label="右に移動">▶</button>
+    <button class="ctrl primary" data-action="jump" aria-label="ジャンプ">⤒</button>
   </section>
 
   <script src="script.js"></script>
