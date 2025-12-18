@@ -1,0 +1,135 @@
+:root {
+  color-scheme: light dark;
+  --bg: #0f172a;
+  --panel: #111827;
+  --text: #f8fafc;
+  --accent: #22d3ee;
+  --grid: #1f2937;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at 20% 20%, #1e293b, #0b1221),
+    radial-gradient(circle at 80% 30%, #0ea5e9, #0f172a 45%);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(6px);
+  position: sticky;
+  top: 0;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(1.25rem, 4vw, 1.75rem);
+}
+
+#reset-btn {
+  border: 1px solid #475569;
+  background: #111827;
+  color: var(--text);
+  padding: 0.5rem 0.9rem;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.board-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#board {
+  background: #0b1221;
+  border-radius: 12px;
+  border: 2px solid #1f2937;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  width: min(90vw, 360px);
+  height: calc(min(90vw, 360px) * 2);
+}
+
+.hud {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.5rem;
+  background: rgba(17, 24, 39, 0.7);
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+.stat {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.hint {
+  grid-column: 1 / -1;
+  margin: 0.25rem 0 0;
+  color: #cbd5e1;
+  font-size: 0.95rem;
+}
+
+.controls {
+  position: sticky;
+  bottom: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  padding: 0.75rem 1rem 1rem;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0) 0%, rgba(15, 23, 42, 0.75) 18%);
+  backdrop-filter: blur(8px);
+}
+
+.ctrl {
+  background: rgba(30, 41, 59, 0.9);
+  border: 1px solid #334155;
+  color: var(--text);
+  padding: 0.85rem 0;
+  font-size: 1.25rem;
+  border-radius: 12px;
+  transition: transform 120ms ease, border-color 120ms ease;
+}
+
+.ctrl:active {
+  transform: scale(0.97);
+  border-color: var(--accent);
+}
+
+.accent {
+  background: linear-gradient(180deg, #22d3ee, #0ea5e9);
+  color: #0b1221;
+  font-weight: 700;
+}
+
+@media (min-width: 720px) {
+  .layout {
+    grid-template-columns: auto 1fr;
+    align-items: center;
+  }
+
+  #board {
+    width: 360px;
+    height: 720px;
+  }
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>モバイル向けテトリス</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="top-bar">
+    <h1>テトリス</h1>
+    <button id="reset-btn" type="button" aria-label="ゲームをリセット">リセット</button>
+  </header>
+
+  <main class="layout">
+    <section class="board-container" aria-label="テトリスのプレイフィールド">
+      <canvas id="board" width="320" height="640" aria-label="ゲームボード"></canvas>
+    </section>
+    <section class="hud">
+      <div class="stat">スコア: <span id="score">0</span></div>
+      <div class="stat">ライン: <span id="lines">0</span></div>
+      <div class="stat">レベル: <span id="level">1</span></div>
+      <p class="hint">左右移動・回転・ソフトドロップは下のボタンで操作できます。キーボード操作にも対応しています。</p>
+    </section>
+  </main>
+
+  <section class="controls" aria-label="タッチ操作ボタン">
+    <button class="ctrl" data-action="left" aria-label="左に移動">◀︎</button>
+    <button class="ctrl" data-action="rotate" aria-label="回転">⟳</button>
+    <button class="ctrl" data-action="right" aria-label="右に移動">▶︎</button>
+    <button class="ctrl accent" data-action="drop" aria-label="ソフトドロップ">▼</button>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
